@@ -9,7 +9,7 @@ function App() {
       <header>
         <Header />
       </header>
-      <main className="flex flex-col justify-around h-full md:flex-row">
+      <main className="flex flex-col h-full md:flex-row">
         <Center />
         <Sidebar />
       </main>
