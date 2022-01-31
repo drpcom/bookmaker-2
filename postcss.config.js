@@ -5,6 +5,6 @@ module.exports = {
   plugins: {
     tailwindcss: {},
     ignoreTransitionProps: ignoreTransitionProps(),
-    autoprefixer: {},
+    autoprefixer: autoprefixer(),
   },
 }
