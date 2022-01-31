@@ -1,5 +1,6 @@
 import React from 'react';
 import DarkMode from './darkMode';
+import 'tw-elements';
 const Header = () => {
 
   return (
