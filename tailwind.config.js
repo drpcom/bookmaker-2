@@ -1,6 +1,7 @@
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}"
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@themesberg/flowbite/**/*.js"
   ],
   darkMode: 'class',
   theme: {
@@ -23,5 +24,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/line-clamp'),
+    require('@themesberg/flowbite/plugin')
   ],
 }
