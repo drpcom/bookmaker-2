@@ -1,8 +1,12 @@
 import React from 'react';
+import { useCollapseSidebar } from '../context/collapseSidebarContext';
 
 const Sidebar = () => {
+    const { open } = useCollapseSidebar();
+
     return (
-        <div className="md:w-2/5 bg-violet-300 dark:bg-[#2e2e37] h-fit min-h-screen hidden md:flex md:flex-col">
+        <>       
+        <div className={open ? "md:w-2/5 bg-violet-300 dark:bg-[#2e2e37] h-fit min-h-screen hidden md:flex md:flex-col" : "hidden"}>
           <div className="flex flex-row items-center h-12 mt-4 mb-4 ml-2 pl-4 pr-4">
               <input type="search" className="form-control min-w-0 block h-11/12 text-2xl text-slate-200 dark:text-white bg-white dark:bg-zinc-600 bg-clip-padding border-none m-0 focus:text-gray-700 focus:bg-white focus:border-sky-300 focus:outline-none" placeholder="Search" aria-label="Search"></input>
                 <button className="btn px-6 py-4 bg-rose-500 dark:bg-sky-400 text-white font-medium uppercase shadow-md hover:bg-rose-600 dark:hover:bg-sky-500 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg ease-in-out flex items-center" type="button">
@@ -39,6 +43,7 @@ const Sidebar = () => {
             
           </div>
         </div>
+        </>
       )
 };
 

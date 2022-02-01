@@ -1,9 +1,11 @@
 import React from 'react';
 import DarkMode from './darkMode';
 import { useCollapse } from '../context/collapseContext';
+import { useCollapseSidebar } from '../context/collapseSidebarContext';
 
 const Header = () => {
   const { clicked, handleClick } = useCollapse();
+  const { open, handleToggle } = useCollapseSidebar();
   return (
       <div>
         <div className="h-1/3 bg-slate-400 dark:bg-zinc-600">
@@ -66,8 +68,8 @@ const Header = () => {
                   <DarkMode />
               </div>
               <div>
-                <button data-tooltip-target="collapse-tooltip" type="button">
-                    <svg className="w-7 h-7 text-slate-600 dark:text-sky-300 hidden md:flex" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clipRule="evenodd" /><path fillRule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clipRule="evenodd" /></svg>
+                <button onClick={() => handleToggle()} data-tooltip-target="collapse-tooltip" type="button">
+                    {open ? (<svg className="w-7 h-7 text-slate-600 dark:text-sky-300 hidden md:flex" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clipRule="evenodd" /><path fillRule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clipRule="evenodd" /></svg>) : <svg className="w-7 h-7 text-slate-600 dark:text-sky-300 hidden md:flex" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M15.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 010 1.414zm-6 0a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 1.414L5.414 10l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" /></svg>}
                 </button>
                 <div id="collapse-tooltip" role="tooltip" className="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
                     Collapse Sidebar
@@ -77,16 +79,10 @@ const Header = () => {
             </div>
 
           </div>
-          <div>
-            <button className='flex flex-row md:hidden' onClick={() => handleClick()} data-tooltip-target="toggle-tooltip" type="button">
+            <button className='flex flex-row md:hidden' onClick={() => handleClick()}>
               {clicked ? (<svg className="w-7 h-7 text-slate-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 15.707a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414 0zm0-6a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 5.414 5.707 9.707a1 1 0 01-1.414 0z" clipRule="evenodd" /></svg>) 
               : (<svg className="w-7 h-7 text-slate-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>)}
             </button>
-            <div id="toggle-tooltip" role="tooltip" className="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                    Toggle Documents
-                  <div className='tooltip-arrow' data-popper-arrow></div>
-            </div>
-          </div>
         </div>
       </div>
       </div>
