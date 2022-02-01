@@ -1,8 +1,11 @@
 import React from 'react';
-import 'tw-elements';
+import { useCollapse } from '../context/collapseContext';
 
 const Accordian = () => {
+    const { clicked } = useCollapse();
+
   return (
+      clicked ? (
       <>
 <div className="collapse" id="collapseExample">
   <div className="block md:hidden shadow-lg bg-violet-300 dark:bg-[#2e2e37] dark:text-slate-200 overflow-x-scroll">
@@ -43,7 +46,8 @@ const Accordian = () => {
   </div>
 </div>
       </>
-  )
+      ) : null
+  ) 
 };
 
 export default Accordian;

@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from '../context/themeContext';
+import React from 'react';
+import { useTheme } from '../context/themeContext';
 import '@themesberg/flowbite';
 
 const DarkMode = () => {
-    const { theme, setTheme } = useContext(ThemeContext);
+    const { theme, setTheme } = useTheme();
     return (
         theme === 'dark' ? 
         (<>

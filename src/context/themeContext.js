@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, createContext, useContext } from 'react';
 
 const getInitialTheme = () => {
     if (typeof window !== 'undefined' && window.localStorage) {
@@ -11,6 +11,12 @@ const getInitialTheme = () => {
         }
     }
     return 'light';
+}
+
+const ThemeContext = createContext();
+
+export function useTheme() {
+    return useContext(ThemeContext);
 }
 
 export const ThemeProvider = ({initialTheme, children}) => {
@@ -41,5 +47,3 @@ export const ThemeProvider = ({initialTheme, children}) => {
         );
     };
 
-
-export const ThemeContext = createContext();

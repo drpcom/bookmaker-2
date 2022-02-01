@@ -1,7 +1,9 @@
 import React from 'react';
 import DarkMode from './darkMode';
-const Header = () => {
+import { useCollapse } from '../context/collapseContext';
 
+const Header = () => {
+  const { handleClick } = useCollapse();
   return (
       <div>
         <div className="h-1/3 bg-slate-400 dark:bg-zinc-600">
@@ -75,7 +77,7 @@ const Header = () => {
             </div>
 
           </div>
-          <button className='flex flex-row md:hidden' data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          <button className='flex flex-row md:hidden' onClick={() => handleClick()} data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             <svg className="w-8 h-8 text-slate-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" /></svg>
           </button>
         </div>
