@@ -27,6 +27,5 @@ module.exports = {
   plugins: [
     require('@tailwindcss/line-clamp'),
     require('@themesberg/flowbite/plugin'),
-    require('tw-elements/dist/plugin')
   ],
 }
