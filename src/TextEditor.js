@@ -34,7 +34,6 @@ const TextEditor = () => {
     formats,
     placeholder
   });
-  console.log(quill)
 
   React.useEffect(() => {
     if (quill) {

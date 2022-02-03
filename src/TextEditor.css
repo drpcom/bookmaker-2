@@ -4,12 +4,10 @@
 }
 
 .ql-toolbar.ql-snow {
-  background: gainsboro;
+  background: beige;
   z-index: 2;
   box-sizing: border-box;
   position: fixed;
-  border: none !important;
-  padding: 0.8rem !important;
   left: 0;
   bottom: 0;
   width: 100%;
