@@ -13,7 +13,7 @@ function App() {
     <ThemeProvider>
       <CollapseProvider>
       <CollapseSidebarProvider>
-        <div className="flex flex-col h-screen w-full">
+        <div className="flex flex-col w-full">
           <header>
             <Header />
             <Accordian />

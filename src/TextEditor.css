@@ -1,0 +1,29 @@
+.ql-container.ql-snow {
+  border: none !important;
+  font-size: 1.2rem;
+}
+
+.ql-toolbar.ql-snow {
+  background: beige;
+  z-index: 2;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.ql-snow .ql-editor a {
+  text-decoration: none !important;
+}
+
+.ql-snow a {
+  color: #f43f5e !important;
+  font-weight: 800 !important;
+  cursor: pointer;
+}
+
+.ql-editor.ql-blank::before {
+  position: unset !important;
+  color: unset !important;
+}
