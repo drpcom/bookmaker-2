@@ -2,6 +2,7 @@ import React from 'react';
 import { useCollapseSidebar } from '../context/collapseSidebarContext';
 import { useNotes } from '../context/notesContext';
 import TextEditor from '../TextEditor';
+import Editor from '../Editor';
 
 const Center = () => {
   const { open } = useCollapseSidebar();
@@ -15,7 +16,7 @@ const Center = () => {
       <div className='h-full w-[97%] mt-3 dark:bg-zinc-700 text-zinc-700 dark:text-slate-200'>
         <div className='bg-[#F3F4F6] dark:bg-[#3F3F46] rounded mb-16'>
           <input type="text" placeholder="Titulo" className="w-[80%] m-4 border-0 focus:ring-0 text-3xl bg-gray-100 dark:bg-zinc-700 text-zinc-700 dark:text-slate-200" />
-          <TextEditor />
+          <Editor />
         </div>
       </div>
     </div>
