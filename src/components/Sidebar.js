@@ -1,8 +1,36 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useCollapseSidebar } from '../context/collapseSidebarContext';
+import { useNotes } from '../context/notesContext';
+import Document from './Document';
 
 const Sidebar = () => {
     const { open } = useCollapseSidebar();
+    const { selectedNoteIndex, setSelectedNoteIndex, notes, setNotes, DeleteNote, SelectNote, NewNote } = useNotes();
+    const [addingNote, setAddingNote] = useState(false);
+    const [title, setTitle] = useState(null);
+
+    const NewNoteBtnClick = () => {
+        setTitle(null);
+        setAddingNote(!addingNote);
+    }
+    const UpdateTitle = (txt) => {
+        if (txt.length > 0) {
+            setTitle(txt);
+        } else {
+            setTitle("(No Subject)")
+        }
+    }
+    const nNewNote = () => {
+        NewNote(title);
+        setTitle(null);
+        setAddingNote(false);
+    }
+    const nSelectNote = (n, i) => {
+        SelectNote(n, i)
+    }
+    const nDeleteNote = (note) => {
+        DeleteNote(note);
+    }
 
     return (
         <>       
@@ -15,16 +43,19 @@ const Sidebar = () => {
                 </svg>
                 </button>
           </div>
-          <div className='flex flex-row flex-wrap ml-4 xl:justify-start'>
-            <button className='bg-emerald-50 dark:bg-zinc-700 rounded w-32 h-36 lg:w-44 lg:h-48 shadow-md shadow-slate-700/50 m-2 flex flex-col p-2 lg:p-3 hover:animate-pulse'>
-                <div className='text-xl lg:text-2xl indent-2'>
-                    <p className='mb-2 line-clamp-1 h-8 text-left dark:text-sky-300'>oh canada you are my favorite place</p> 
-                </div>
-                <div>
-                   <p className='line-clamp-5 text-xs flex flex-row text-left lg:line-clamp-7 dark:text-slate-200'>I really didn’t expect The Brothers Karamazov to have much of an effect on me after I finished it. It didn’t knock me off my feet. But I’ve caught myself thinking about the characters a lot. The characters really do stay with you. Each one is so well-drawn. Mitya, Ivan, Alyosha, #Grushenka, Katerina Ivanovna, Smerdyakov, Lise, Madame Khokhlakov. Even characters like Snegiryov and Kolya Krasotkin. There’s just no flatness to any of them. Dostovesky didn’t know how to write a flat character.</p> 
-                </div>    
-            </button>
-            <button className='bg-emerald-50 dark:bg-zinc-700 rounded w-32 h-36 lg:w-44 lg:h-48 shadow-md shadow-slate-700/50 m-2 flex flex-col p-2 lg:p-3 hover:animate-pulse'>
+            {notes ? 
+                notes.map((_note, _index) => {
+                    return (
+                        <div key={Math.random() * 99999}>
+                            <Document 
+                             _note = {_note}
+                            _index = {_index}
+                            />
+                        </div>
+                    )
+                })
+            : <div></div>}
+            {/* <button className='bg-emerald-50 dark:bg-zinc-700 rounded w-32 h-36 lg:w-44 lg:h-48 shadow-md shadow-slate-700/50 m-2 flex flex-col p-2 lg:p-3 hover:animate-pulse'>
                 <div className='text-xl lg:text-2xl indent-2'>
                     <p className='mb-2 line-clamp-1 h-8 text-left dark:text-sky-300'>sprinter!</p> 
                 </div>
@@ -39,10 +70,9 @@ const Sidebar = () => {
                 <div>
                    <p className='line-clamp-5 text-xs flex flex-row text-left lg:line-clamp-7 dark:text-slate-200'>I really didn’t expect The Brothers Karamazov to have much of an effect on me after I finished it. It didn’t knock me off my feet. But I’ve caught myself thinking about the characters a lot. The characters really do stay with you. Each one is so well-drawn. Mitya, Ivan, Alyosha, #Grushenka, Katerina Ivanovna, Smerdyakov, Lise, Madame Khokhlakov. Even characters like Snegiryov and Kolya Krasotkin. There’s just no flatness to any of them. Dostovesky didn’t know how to write a flat character.</p> 
                 </div>    
-            </button>
+            </button> */}
             
           </div>
-        </div>
         </>
       )
 };

@@ -6,7 +6,7 @@ import { useNotes } from "./context/notesContext";
 
 export const Editor = () => {
 
-    const { selectedNote, setSelectedNote, selectedNoteIndex, setSelectedNoteIndex, notes, setNotes, NoteUpdate } = useNotes();
+    const { selectedNote, NoteUpdate } = useNotes();
 
     const [text, setText] = useState('');
     const [title, setTitle] = useState('');
@@ -49,6 +49,8 @@ export const Editor = () => {
             <div className="text-editor">
                 <EditorToolbar />
                 <ReactQuill
+                value={text}
+                onChange={UpdateBody}
                 theme="snow"
                 placeholder={"Write something awesome..."}
                 modules={modules}
