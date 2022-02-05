@@ -43,18 +43,19 @@ const Sidebar = () => {
                 </svg>
                 </button>
           </div>
+            <div className='flex flex-row flex-wrap ml-4 xl:justify-start'>
             {notes ? 
                 notes.map((_note, _index) => {
                     return (
-                        <div key={Math.random() * 99999}>
                             <Document 
+                            key={Math.random() * 99999}
                              _note = {_note}
                             _index = {_index}
                             />
-                        </div>
                     )
                 })
             : <div></div>}
+            </div>
             {/* <button className='bg-emerald-50 dark:bg-zinc-700 rounded w-32 h-36 lg:w-44 lg:h-48 shadow-md shadow-slate-700/50 m-2 flex flex-col p-2 lg:p-3 hover:animate-pulse'>
                 <div className='text-xl lg:text-2xl indent-2'>
                     <p className='mb-2 line-clamp-1 h-8 text-left dark:text-sky-300'>sprinter!</p> 
