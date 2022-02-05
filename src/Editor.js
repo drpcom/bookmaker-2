@@ -46,17 +46,21 @@ export const Editor = () => {
 
 
     return (
-            <div className="text-editor">
-                <EditorToolbar />
-                <ReactQuill
-                value={text}
-                onChange={UpdateBody}
-                theme="snow"
-                placeholder={"Write something awesome..."}
-                modules={modules}
-                formats={formats}
-                />
+        <div className="bg-gray-100 dark:bg-zinc-700 rounded-lg min-h-screen flex flex-col items-center overflow-auto">
+            <div className="bg-gray-100 dark:bg-zinc-700 w-full rounded flex flex-col">
+                <div className="text-editor h-full break-words">
+                    <EditorToolbar />
+                    <ReactQuill
+                    value={text}
+                    onChange={UpdateBody}
+                    theme="snow"
+                    placeholder={"Write something awesome..."}
+                    modules={modules}
+                    formats={formats}
+                    />
+                </div>
             </div>
+        </div>
     );
   };
   

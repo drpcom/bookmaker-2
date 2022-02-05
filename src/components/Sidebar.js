@@ -5,32 +5,7 @@ import Document from './Document';
 
 const Sidebar = () => {
     const { open } = useCollapseSidebar();
-    const { selectedNoteIndex, setSelectedNoteIndex, notes, setNotes, DeleteNote, SelectNote, NewNote } = useNotes();
-    const [addingNote, setAddingNote] = useState(false);
-    const [title, setTitle] = useState(null);
-
-    const NewNoteBtnClick = () => {
-        setTitle(null);
-        setAddingNote(!addingNote);
-    }
-    const UpdateTitle = (txt) => {
-        if (txt.length > 0) {
-            setTitle(txt);
-        } else {
-            setTitle("(No Subject)")
-        }
-    }
-    const nNewNote = () => {
-        NewNote(title);
-        setTitle(null);
-        setAddingNote(false);
-    }
-    const nSelectNote = (n, i) => {
-        SelectNote(n, i)
-    }
-    const nDeleteNote = (note) => {
-        DeleteNote(note);
-    }
+    const { notes, NewNote, addingNote, setAddingNote, NewNoteBtnClick, UpdateTitle, createNewNote } = useNotes();
 
     return (
         <>       

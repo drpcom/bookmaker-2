@@ -48,7 +48,7 @@ const TextEditor = () => {
   return (
     <div className="bg-gray-100 dark:bg-zinc-700 rounded-lg min-h-screen flex flex-col items-center overflow-auto">
       <div className="bg-gray-100 dark:bg-zinc-700 w-full rounded flex flex-col">
-        <div id="text-content" className="h-full mx-auto" ref={quillRef} />
+        <div id="text-content" className="h-full" ref={quillRef} />
       </div>
     </div>
   );

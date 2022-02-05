@@ -12,6 +12,8 @@ export const NotesProvider = ({children}) => {
   const [notes, setNotes] = useState(null);
   const [selectedNote, setSelectedNote] = useState(null);
   const [selectedNoteIndex, setSelectedNoteIndex] = useState(null);
+  const [addingNote, setAddingNote] = useState(false);
+  const [title, setTitle] = useState(null);
 
   const FetchNotesFromDB = () => {
     useEffect(() => {
@@ -23,7 +25,6 @@ export const NotesProvider = ({children}) => {
             return data;
           });
           setNotes(notes);
-          console.log(notes)
         });
     },[]);
   }
@@ -79,6 +80,25 @@ export const NotesProvider = ({children}) => {
         .delete();
   }
 
+  const NewNoteBtnClick = () => {
+    setTitle(null);
+    setAddingNote(!addingNote);
+  }
+
+  const UpdateTitle = (txt) => {
+      if (txt.length > 0) {
+          setTitle(txt);
+      } else {
+          setTitle("(No Subject)")
+      }
+  }
+
+  const createNewNote = () => {
+      NewNote(title);
+      setTitle(null);
+      setAddingNote(false);
+  }
+
   return (
       <NotesContext.Provider value={{
         notes,
@@ -87,11 +107,18 @@ export const NotesProvider = ({children}) => {
         setSelectedNote,
         selectedNoteIndex,
         setSelectedNoteIndex,
+        addingNote,
+        setAddingNote,
+        title, 
+        setTitle,
         FetchNotesFromDB,
         SelectNote,
         NoteUpdate,
         NewNote,
-        DeleteNote
+        DeleteNote,
+        NewNoteBtnClick,
+        UpdateTitle,
+        createNewNote
        }}>
         {children}
       </NotesContext.Provider>
