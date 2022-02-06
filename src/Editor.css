@@ -3,6 +3,7 @@
   font-size: 1.2rem;
 }
 
-/* ql-snow.ql-toolbar button {
-  padding: 0;
-} */
+.ql-snow.ql-toolbar button:hover,
+.ql-snow.ql-toolbar button:active {
+  color: gray;
+}

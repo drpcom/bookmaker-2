@@ -21,23 +21,6 @@ function redoChange() {
   this.quill.history.redo();
 }
 
-// Add sizes to whitelist and register them
-const Size = Quill.import("formats/size");
-Size.whitelist = ["extra-small", "small", "medium", "large"];
-Quill.register(Size, true);
-
-// Add fonts to whitelist and register them
-const Font = Quill.import("formats/font");
-Font.whitelist = [
-  "arial",
-  "comic-sans",
-  "courier-new",
-  "georgia",
-  "helvetica",
-  "lucida"
-];
-Quill.register(Font, true);
-
 var icons = Quill.import('ui/icons');
 icons['bold'] = '<button class="dark:text-white flex flex-row items-center font-bold">B</button>';
 icons['italic'] = '<button class="dark:text-white flex flex-row items-center italic font-bold">I</button>';
@@ -64,49 +47,24 @@ export const modules = {
 
 // Formats objects for setting up the Quill editor
 export const formats = [
-  "header",
-  "font",
-  "size",
   "bold",
   "italic",
   "underline",
-  "align",
   "strike",
-  "script",
-  "blockquote",
-  "background",
-  "list",
-  "bullet",
-  "indent",
   "link",
-  "image",
-  "color",
-  "code-block"
+  "image"
 ];
 
 // Quill Toolbar component
 export const QuillToolbar = () => (
   <div id="toolbar" className="dark:text-white bg-white dark:bg-[#2e2e37] dark:border-t-1 dark:border-zinc-600 z-10 box-border fixed left-0 bottom-0 w-full p-3">
     <span className="ql-formats">
-      <select className="ql-font dark:text-white" defaultValue="arial">
-        <option value="arial">Arial</option>
-        <option value="comic-sans">Comic Sans</option>
-        <option value="courier-new">Courier New</option>
-        <option value="georgia">Georgia</option>
-        <option value="helvetica">Helvetica</option>
-        <option value="lucida">Lucida</option>
-      </select>
-      <select className="ql-size dark:text-white" defaultValue="medium">
-        <option value="extra-small">Size 1</option>
-        <option value="small">Size 2</option>
-        <option value="medium">Size 3</option>
-        <option value="large">Size 4</option>
-      </select>
-      <select className="ql-header dark:text-white" defaultValue="3">
-        <option value="1">Heading</option>
-        <option value="2">Subheading</option>
-        <option value="3">Normal</option>
-      </select>
+      <button className="ql-undo">
+        <CustomUndo />
+      </button>
+      <button className="ql-redo">
+        <CustomRedo />
+      </button>
     </span>
     <span className="ql-formats">
       <button className="ql-bold p-0" />
@@ -115,39 +73,8 @@ export const QuillToolbar = () => (
       <button className="ql-strike p-0" />
     </span>
     <span className="ql-formats">
-      <button className="ql-list" value="ordered" />
-      <button className="ql-list" value="bullet" />
-      <button className="ql-indent" value="-1" />
-      <button className="ql-indent" value="+1" />
-    </span>
-    <span className="ql-formats">
-      <button className="ql-script" value="super" />
-      <button className="ql-script" value="sub" />
-      <button className="ql-blockquote" />
-      <button className="ql-direction" />
-    </span>
-    <span className="ql-formats">
-      <select className="ql-align" />
-      <select className="ql-color" />
-      <select className="ql-background" />
-    </span>
-    <span className="ql-formats">
       <button className="ql-link" />
       <button className="ql-image" />
-      <button className="ql-video" />
-    </span>
-    <span className="ql-formats">
-      <button className="ql-formula" />
-      <button className="ql-code-block" />
-      <button className="ql-clean" />
-    </span>
-    <span className="ql-formats">
-      <button className="ql-undo">
-        <CustomUndo />
-      </button>
-      <button className="ql-redo">
-        <CustomRedo />
-      </button>
     </span>
   </div>
 );
