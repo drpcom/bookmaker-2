@@ -1,7 +1,6 @@
 import React from 'react';
 import { useCollapseSidebar } from '../context/collapseSidebarContext';
 import { useNotes } from '../context/notesContext';
-import TextEditor from '../TextEditor';
 import Editor from '../Editor';
 
 const Center = () => {

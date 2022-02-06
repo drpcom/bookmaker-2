@@ -3,6 +3,7 @@ import ReactQuill from "react-quill";
 import EditorToolbar, { modules, formats } from "./EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useNotes } from "./context/notesContext";
+import './Editor.css';
 
 export const Editor = () => {
 

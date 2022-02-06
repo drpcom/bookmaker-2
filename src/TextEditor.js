@@ -1,5 +1,4 @@
 import React from "react";
-import './TextEditor.css';
 
 import { useQuill } from "react-quilljs";
 // or const { useQuill } = require('react-quilljs');
