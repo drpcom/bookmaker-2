@@ -57,7 +57,7 @@ export const formats = [
 
 // Quill Toolbar component
 export const QuillToolbar = () => (
-  <div id="toolbar" className="dark:text-white bg-white dark:bg-[#2e2e37] dark:border-t-1 dark:border-zinc-600 z-10 box-border fixed left-0 bottom-0 w-full p-3">
+  <div id="toolbar" className="dark:text-white bg-[#f3f4f6] dark:bg-[#2e2e37] dark:border-t-1 dark:border-zinc-600 z-10 box-border fixed left-0 bottom-0 w-full p-3">
     <span className="ql-formats">
       <button className="ql-undo">
         <CustomUndo />
