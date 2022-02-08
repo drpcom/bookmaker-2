@@ -7,3 +7,7 @@
 .ql-snow.ql-toolbar button:active {
   color: gray;
 }
+
+.quill > .ql-container > .ql-editor.ql-blank::before {
+  color: #677080;
+}

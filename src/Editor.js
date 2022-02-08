@@ -55,7 +55,7 @@ export const Editor = () => {
                     value={text}
                     onChange={UpdateBody}
                     theme="snow"
-                    placeholder={"Write something awesome..."}
+                    placeholder={"Write something awesome ♥"}
                     modules={modules}
                     formats={formats}
                     />
