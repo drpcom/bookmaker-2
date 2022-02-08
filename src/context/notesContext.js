@@ -14,6 +14,7 @@ export const NotesProvider = ({children}) => {
   const [selectedNoteIndex, setSelectedNoteIndex] = useState(null);
   const [addingNote, setAddingNote] = useState(false);
   const [title, setTitle] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const FetchNotesFromDB = () => {
     useEffect(() => {
@@ -60,6 +61,7 @@ export const NotesProvider = ({children}) => {
     const NewNoteIndex = notes.indexOf(notes.filter(_note => _note.id === newID)[0])
     setSelectedNote(notes[NewNoteIndex]);
     setSelectedNoteIndex(NewNoteIndex);
+    setShowModal(false);
   }
 
   const DeleteNote = async (note) => {
@@ -81,6 +83,7 @@ export const NotesProvider = ({children}) => {
   }
 
   const NewNoteBtnClick = () => {
+    setShowModal(true);
     setTitle(null);
     setAddingNote(!addingNote);
   }
@@ -110,7 +113,9 @@ export const NotesProvider = ({children}) => {
         addingNote,
         setAddingNote,
         title, 
-        setTitle,
+        setTitle,        
+        showModal,
+        setShowModal,
         FetchNotesFromDB,
         SelectNote,
         NoteUpdate,
@@ -118,7 +123,8 @@ export const NotesProvider = ({children}) => {
         DeleteNote,
         NewNoteBtnClick,
         UpdateTitle,
-        createNewNote
+        createNewNote,
+
        }}>
         {children}
       </NotesContext.Provider>

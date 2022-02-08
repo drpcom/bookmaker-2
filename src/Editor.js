@@ -13,7 +13,7 @@ export const Editor = () => {
     const [title, setTitle] = useState('');
     const [id, setId] = useState('');
 
-    useEffect(() => {
+    useEffect(() => { //i think this is attempting to fetch the current selected note. it doesn't work afaik.
         setText(selectedNote.body);
         setTitle(selectedNote.title);
         setId(selectedNote.id);   

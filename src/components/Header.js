@@ -4,6 +4,7 @@ import { useCollapse } from '../context/collapseContext';
 import { useCollapseSidebar } from '../context/collapseSidebarContext';
 import { handleZoomIn } from './zoomBtns';
 import { handleZoomOut } from './zoomBtns';
+import Create from './NewDoc';
 
 const Header = () => {
   const { clicked, handleClick } = useCollapse();
@@ -19,9 +20,7 @@ const Header = () => {
           <div className='flex flex-row'>
             <div className='flex text-lg z-10 justify-around w-32'>
               <div>
-                <button className="flex flex-row text-slate-100 items-center bg-rose-500 rounded-sm h-full" data-tooltip-target="create-tooltip" type="button">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
-                </button>
+                <Create />
                 <div id="create-tooltip" role="tooltip" className="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
                   New Document
                 <div className='tooltip-arrow' data-popper-arrow></div>
