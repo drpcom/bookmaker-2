@@ -1,9 +1,9 @@
 import React from 'react';
-import DarkMode from './DarkMode';
+import DarkMode from './darkMode';
 import { useCollapse } from '../context/collapseContext';
 import { useCollapseSidebar } from '../context/collapseSidebarContext';
-import { handleZoomIn } from './ZoomBtns';
-import { handleZoomOut } from './ZoomBtns';
+import { handleZoomIn } from './zoomBtns';
+import { handleZoomOut } from './zoomBtns';
 import Create from './NewDoc';
 
 const Header = () => {
