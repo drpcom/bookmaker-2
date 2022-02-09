@@ -6,7 +6,7 @@ import NotesProvider from './context/notesContext';
 import Center from './components/Center';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
-import Accordian from './components/Accordian';
+import Accordion from './components/Accordion';
 import "@material-tailwind/react/tailwind.css";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
           <div className="flex flex-col w-full">
             <header>
               <Header />
-              <Accordian />
+              <Accordion />
             </header>
             <main className="flex flex-col h-full md:flex-row bg-violet-300 dark:bg-[#2e2e37] justify-center">
               <Center />
