@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import ReactQuill from "react-quill";
 import EditorToolbar, { modules, formats } from "./EditorToolbar";
 import "react-quill/dist/quill.snow.css";
-import { useNotes } from "./context/notesContext";
+import { useNotes } from "../context/notesContext";
 import './Editor.css';
 
 export const Editor = () => {
@@ -61,7 +61,7 @@ export const Editor = () => {
                     value={text}
                     onChange={UpdateBody}
                     theme="snow"
-                    placeholder={"Write something awesome ♥"}
+                    placeholder={"Write something awesome."}
                     modules={modules}
                     formats={formats}
                     />

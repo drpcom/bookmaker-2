@@ -1,4 +1,3 @@
-import './App.css';
 import { ThemeProvider } from './context/themeContext';
 import CollapseProvider from './context/collapseContext';
 import CollapseSidebarProvider from './context/collapseSidebarContext';
