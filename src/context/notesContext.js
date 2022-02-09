@@ -12,7 +12,6 @@ export const NotesProvider = ({children}) => {
   const [notes, setNotes] = useState(null);
   const [selectedNote, setSelectedNote] = useState(null);
   const [selectedNoteIndex, setSelectedNoteIndex] = useState(null);
-  const [addingNote, setAddingNote] = useState(false);
   const [title, setTitle] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
@@ -85,7 +84,6 @@ export const NotesProvider = ({children}) => {
   const NewNoteBtnClick = () => {
     setShowModal(true);
     setTitle(null);
-    setAddingNote(!addingNote);
   }
 
   const UpdateTitle = (txt) => {
@@ -99,7 +97,6 @@ export const NotesProvider = ({children}) => {
   const CreateNewNote = () => {
       NewNote(title);
       setTitle(null);
-      setAddingNote(false);
   }
 
   return (
@@ -110,8 +107,6 @@ export const NotesProvider = ({children}) => {
         setSelectedNote,
         selectedNoteIndex,
         setSelectedNoteIndex,
-        addingNote,
-        setAddingNote,
         title, 
         setTitle,        
         showModal,

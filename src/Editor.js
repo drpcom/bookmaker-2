@@ -56,7 +56,7 @@ export const Editor = () => {
                     onChange={(e) => UpdateTitle(e.target.value)}
                     type="text" 
                     placeholder="Title" 
-                    className="w-[80%] m-4 border-0 focus:ring-0 text-3xl bg-gray-100 dark:bg-zinc-700 text-zinc-700 dark:text-slate-200" />
+                    className="w-[90%] flex flex-row flex-wrap m-4 border-0 focus:ring-0 text-3xl bg-gray-100 dark:bg-zinc-700 text-zinc-700 dark:text-slate-200" />
                     <ReactQuill
                     value={text}
                     onChange={UpdateBody}
