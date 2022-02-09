@@ -8,7 +8,7 @@ import Button from "@material-tailwind/react/Button";
 import { useNotes } from "../context/notesContext";
 
 export default function Create() {
-    const { showModal, setShowModal, UpdateTitle, NewNote, NewNoteBtnClick,title } = useNotes();
+    const { showModal, setShowModal, UpdateTitle, CreateNewNote, NewNoteBtnClick } = useNotes();
 
     return (
         <>
@@ -35,7 +35,7 @@ export default function Create() {
 
                     <Button
                         color="green"
-                        onClick={NewNote}
+                        onClick={CreateNewNote}
                         ripple="light"
                     >
                         Create

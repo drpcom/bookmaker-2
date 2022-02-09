@@ -96,7 +96,7 @@ export const NotesProvider = ({children}) => {
       }
   }
 
-  const createNewNote = () => {
+  const CreateNewNote = () => {
       NewNote(title);
       setTitle(null);
       setAddingNote(false);
@@ -123,7 +123,7 @@ export const NotesProvider = ({children}) => {
         DeleteNote,
         NewNoteBtnClick,
         UpdateTitle,
-        createNewNote,
+        CreateNewNote,
 
        }}>
         {children}
