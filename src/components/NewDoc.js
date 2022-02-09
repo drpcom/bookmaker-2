@@ -39,7 +39,6 @@ export default function Create() {
                         ripple="light"
                     >
                         Create
-                        {console.log(title)}
                     </Button>
                 </ModalFooter>
             </Modal>
