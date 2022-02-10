@@ -11,8 +11,8 @@ const Accordian = () => {
       clicked ? (
       <>
 <div className="collapse" id="collapseExample">
-  <div className="block md:hidden shadow-lg bg-violet-300 dark:bg-[#2e2e37] dark:text-slate-200 overflow-x-scroll">
-        <div className='grid grid-flow-col grid-rows-1 xl:justify-start'>
+  <div className="block md:hidden min-h-screen shadow-lg bg-violet-300 dark:bg-[#2e2e37] dark:text-slate-200">
+        <div className='flex flex-row flex-wrap max-w-screen-sm justify-center xl:justify-start'>
             {notes ? 
                 notes.map((_note, _index) => {
                     return (
