@@ -27,16 +27,16 @@ export default function Create() {
                     <Button 
                         color="red"
                         buttonType="link"
-                        onClick={(e) => setShowModal(false)}
+                        onClick={() => setShowModal(false)}
                         ripple="dark"
                     >
                         Close
                     </Button>
 
                     <Button
-                        color="green"
                         onClick={CreateNewNote}
                         ripple="light"
+                        className="bg-purple-500 dark:bg-sky-500"
                     >
                         Create
                     </Button>
