@@ -6,7 +6,7 @@ import { useNotes } from '../context/notesContext';
 import { handleZoomIn } from './zoomBtns';
 import { handleZoomOut } from './zoomBtns';
 import Create from './NewDoc';
-import { useDownloader, useUploader, specific, MIME_TYPES } from 'react-files-hooks';
+import { specific } from 'react-files-hooks';
 
 
 const Header = () => {
