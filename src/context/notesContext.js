@@ -58,7 +58,7 @@ export const NotesProvider = ({children}) => {
     const newID = newFromDB.id;
     await setNotes([...notes, note])
     const NewNoteIndex = notes.indexOf(notes.filter(_note => _note.id === newID)[0])
-    setSelectedNote(notes[NewNoteIndex]);
+    setSelectedNote(notes[NewNoteIndex]); //not working? TODO: troubleshoot.
     setSelectedNoteIndex(NewNoteIndex);
     setShowModal(false);
   }

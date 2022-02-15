@@ -7,31 +7,12 @@ import { handleZoomIn } from './zoomBtns';
 import { handleZoomOut } from './zoomBtns';
 import Create from './NewDoc';
 import DownloadBtn from './DownloadBtn';
-import { useDownloader, useUploader, specific, MIME_TYPES } from 'react-files-hooks';
+import UploadBtn from './UploadBtn';
 
 const Header = () => {
   const { clicked, handleClick } = useCollapse();
   const { open, handleToggle } = useCollapseSidebar();
   const { selectedNote } = useNotes();
-
-  // const { uploader, reset } = useUploader({
-  //   onSelectFile: file => {}, 
-  //   onError: error => {},
-  //   validTypes: [MIME_TYPES.IMAGE, MIME_TYPES.VIDEO]
-  // });
-
-  // const pdfResult = specific.usePDFUploader({
-  //   onSelectFile: file => {},
-  //   onError: error => {}
-  // });
- 
-  // const { downloader } = useDownloader({
-  //   file: selectedNote?.body,
-  //   type: MIME_TYPES.GIF,
-  //   onError: error => {}
-  // });
-
-  
 
   return (
       <div>
@@ -51,7 +32,7 @@ const Header = () => {
               </div>
               <div className='self-center'>
                 <button className="flex flex-row items-center" data-tooltip-target="open-tooltip" type="button">
-                <svg className="w-7 h-7 text-slate-600 dark:text-sky-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
+                  <UploadBtn />
                 </button>
                 <div id="open-tooltip" role="tooltip" className="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
                   Open

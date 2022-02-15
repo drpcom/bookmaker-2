@@ -11,3 +11,11 @@
 .quill > .ql-container > .ql-editor.ql-blank::before {
   color: #677080;
 }
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  cursor: pointer;
+}
