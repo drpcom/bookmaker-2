@@ -13,7 +13,6 @@ export const NotesProvider = ({children}) => {
   const [selectedNote, setSelectedNote] = useState(null);
   const [selectedNoteIndex, setSelectedNoteIndex] = useState(null);
   const [title, setTitle] = useState(null);
-  const [showModal, setShowModal] = useState(false);
 
   const FetchNotesFromDB = () => {
     useEffect(() => {
@@ -93,23 +92,6 @@ export const NotesProvider = ({children}) => {
         .delete();
   }
 
-  const NewNoteBtnClick = () => {
-    NewNote();
-  }
-
-  const UpdateTitle = (txt) => {
-      if (txt.length > 0) {
-          setTitle(txt);
-      } else {
-          setTitle("(No Subject)")
-      }
-  }
-
-  const CreateNewNote = () => {
-      NewNote(title);
-      setTitle(null);
-  }
-
   return (
       <NotesContext.Provider value={{
         notes,
@@ -120,17 +102,11 @@ export const NotesProvider = ({children}) => {
         setSelectedNoteIndex,
         title, 
         setTitle,        
-        showModal,
-        setShowModal,
         FetchNotesFromDB,
         SelectNote,
         NoteUpdate,
         NewNote,
         DeleteNote,
-        NewNoteBtnClick,
-        UpdateTitle,
-        CreateNewNote,
-
        }}>
         {children}
       </NotesContext.Provider>

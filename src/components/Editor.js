@@ -25,10 +25,6 @@ export const Editor = () => {
         }
     },[id, selectedNote.body, selectedNote.title, selectedNote.id]);
 
-    // useEffect(() => {
-    //     DisplayNewNote();
-    // }, [])
-
     // Sets body text to whatever is currently being typed.
     // Attempts to update DB. 
     const UpdateBody = (val) => {
@@ -43,6 +39,7 @@ export const Editor = () => {
         await setTitle(txt);
         Update();
     };
+    
     const Update = () => {
         //debounce used to go here
         NoteUpdate(id, {
