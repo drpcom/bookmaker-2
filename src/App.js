@@ -6,7 +6,6 @@ import Center from './components/Center';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Accordion from './components/Accordion';
-import "@material-tailwind/react/tailwind.css";
 
 function App() {
   
