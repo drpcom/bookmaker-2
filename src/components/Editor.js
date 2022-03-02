@@ -12,25 +12,31 @@ export const Editor = () => {
     const [text, setText] = useState('');
     const [title, setTitle] = useState('');
     const [id, setId] = useState('');
-
+    
+    // Side effect that sets the current parameters of the text edtior to selectedNote.
     useEffect(() => { 
         setText(selectedNote.body);
         setTitle(selectedNote.title);
         setId(selectedNote.id);   
-        if(selectedNote.id !== id) {
+        if(selectedNote.id !== id) { // If we move to a new note...
             setText(selectedNote.body);
             setTitle(selectedNote.title);
             setId(selectedNote.id);
         }
     },[id, selectedNote.body, selectedNote.title, selectedNote.id]);
 
-    const UpdateBody = async (val) => {
+    // useEffect(() => {
+    //     DisplayNewNote();
+    // }, [])
+
+    // Sets body text to whatever is currently being typed.
+    // Attempts to update DB. 
+    const UpdateBody = (val) => {
+        setText(val);
         try {
-            await setText(val);
-            Update();
-            
+            Update();            
         } catch (error) {
-            console.log("nah.")
+            console.log('Unable to update note.')
         }
     };
     const UpdateTitle = async (txt) => {
@@ -58,7 +64,7 @@ export const Editor = () => {
                     <EditorToolbar />
                     <div className="flex flex-row justify-around">
                         <textarea 
-                        value={title ? title : "(No Subject)"} 
+                        value={title ? title : ""} 
                         onChange={(e) => UpdateTitle(e.target.value)}
                         type="text" 
                         placeholder="Title" 

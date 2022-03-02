@@ -44,24 +44,36 @@ export const NotesProvider = ({children}) => {
         });
   }
 
-  const NewNote = async (title) => {
+  const NewNote = async () => {
+    // Create note object.
     const note = {
-        title: title,
+        title: 'Title',
         body: ''
     }
-    const newFromDB = await db.collection('notes')
+    // Create note in database.
+    await db.collection('notes')
         .add({
             title: note.title,
             body: note.body,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         })
-    const newID = newFromDB.id;
-    await setNotes([...notes, note])
-    const NewNoteIndex = notes.indexOf(notes.filter(_note => _note.id === newID)[0])
-    setSelectedNote(notes[NewNoteIndex]); //not working? TODO: troubleshoot.
-    setSelectedNoteIndex(NewNoteIndex);
-    setShowModal(false);
-  }
+        .then(function(result) {
+          // Get the note and make it the current selectedNote.
+          result.get().then(doc => {
+            if (doc.exists) {
+                  const { title, body } = doc.data();
+                  setSelectedNote({
+                    title: title,
+                    body: body,
+                    id: doc.id
+                  })
+                  setSelectedNoteIndex(doc.id)
+            } else {
+                 console.log("No such document!");
+            }
+        })
+  })}
+  
 
   const DeleteNote = async (note) => {
     const noteIndex = notes.indexOf(note);
@@ -82,8 +94,7 @@ export const NotesProvider = ({children}) => {
   }
 
   const NewNoteBtnClick = () => {
-    setShowModal(true);
-    setTitle(null);
+    NewNote();
   }
 
   const UpdateTitle = (txt) => {
