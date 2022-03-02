@@ -47,10 +47,10 @@ export const NotesProvider = ({children}) => {
   const NewNote = async () => {
     // Create note object.
     const note = {
-        title: 'Title',
+        title: '',
         body: ''
     }
-    // Create note in database.
+    // Create note in DB.
     await db.collection('notes')
         .add({
             title: note.title,
@@ -58,7 +58,7 @@ export const NotesProvider = ({children}) => {
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         })
         .then(function(result) {
-          // Get the note and make it the current selectedNote.
+          // Get the note from DB and make it the current selectedNote.
           result.get().then(doc => {
             if (doc.exists) {
                   const { title, body } = doc.data();
