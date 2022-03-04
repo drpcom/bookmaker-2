@@ -30,10 +30,11 @@ export const Editor = () => {
     const UpdateBody = (val) => {
         setText(val);
         try {
-            Update();            
+            Update();        
         } catch (error) {
             console.log('Unable to update note.')
         }
+        console.log(text)    
     };
     const UpdateTitle = async (txt) => {
         await setTitle(txt);
