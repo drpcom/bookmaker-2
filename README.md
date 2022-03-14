@@ -1,5 +1,5 @@
 # Bookmaker
-> Document editor made using React, Firebase, TailwindCSS, and ReactQuill.
+> Full-stack document editor made using React, Firebase, TailwindCSS, and ReactQuill.
 > Web App [_here_](https://compassionate-banach-b46723.netlify.app/).
 
 ## Table of Contents
