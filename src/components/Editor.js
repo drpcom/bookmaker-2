@@ -18,6 +18,11 @@ export const Editor = () => {
         setText(selectedNote.body);
         setTitle(selectedNote.title);
         setId(selectedNote.id);   
+        try {
+            Update();        
+        } catch (error) {
+            console.log('Unable to update note.')
+        }
         if(selectedNote.id !== id) { // If we move to a new note...
             setText(selectedNote.body);
             setTitle(selectedNote.title);
