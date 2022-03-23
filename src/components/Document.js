@@ -31,8 +31,8 @@ const Document = ({_note, _index}) => {
             <p className={clickedViewChange ? 'line-clamp-1 w-[80%] h-6 md:h-8 text-left text-[#708090] dark:text-sky-300 text-sm md:text-base' : 'mb-2 line-clamp-1 w-[80%] h-6 md:h-8 text-left text-[#708090] dark:text-sky-300 text-sm md:text-2xl'}>{_note.title ? _note.title : 'No Title'}</p> 
             {isHovering ? <svg onClick={() => DeleteNoteHandler(_note)} className="w-6 h-6 text-[#708090] hover:text-slate-400 ease-in-out duration-200" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" /></svg> : null}
         </div>
-        <div className='flex-1 self-center'>
-           <p className={clickedViewChange ? 'line-clamp-1 text-xs flex flex-row text-left text-zinc-500 dark:text-slate-200 mb-1 mr-2 ml-2' : 'line-clamp-3 md:line-clamp-5 text-xs flex flex-row text-left lg:line-clamp-7 text-[#3f3f46] dark:text-slate-200'}>{removeHTMLTags(_note.body.substring(0, 200)) + '...'}</p> 
+        <div className={clickedViewChange ? 'flex-1 self-center' : ''}>
+           <p className={clickedViewChange ? 'line-clamp-1 text-xs flex flex-row text-left text-zinc-500 dark:text-slate-200 mb-1 mr-2 ml-2' : 'line-clamp-3 md:line-clamp-5 text-xs flex flex-row text-left lg:line-clamp-7 text-[#5d5d60] dark:text-slate-200'}>{removeHTMLTags(_note.body.substring(0, 200)) + '...'}</p> 
         </div>    
     </button>
     </>
