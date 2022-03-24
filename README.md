@@ -43,7 +43,7 @@
 To run this project, install it locally using npm:
 
 ```
-$ cd ../my-project
+$ cd ./bookmaker-2
 $ npm install
 $ npm start
 ```
