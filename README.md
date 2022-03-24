@@ -48,6 +48,8 @@ $ npm install
 $ npm start
 ```
 
+To use Firebase with this project, you need to change the filename of the ```.env.example``` file in the root directory to ```.env``` and fill in the values provided by Firebase.
+
 ## Project Status
 
 Project is: _in progress_
