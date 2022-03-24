@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
 
+// This context is for setting if the Accordian is open or closed.
+
 const CollapseContext = createContext();
 
 export function useCollapse() {
