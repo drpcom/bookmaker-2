@@ -66,7 +66,7 @@ export const Editor = () => {
                         onChange={(e) => UpdateTitle(e.target.value)}
                         type="text" 
                         placeholder="Title" 
-                        className="resize-none overflow-y-hidden h-20 w-[80%] flex flex-row flex-wrap m-4 border-0 focus:ring-0 text-3xl bg-gray-100 dark:bg-zinc-700 text-zinc-700 dark:text-slate-200" 
+                        className="resize-none overflow-y-hidden h-20 w-[80%] flex flex-row flex-wrap m-4 border-0 focus:ring-0 text-3xl bg-gray-100 dark:bg-zinc-700 text-[#7a7ab8] dark:text-sky-300 font-bold" 
                         />
                         {selectedNote ? 
                         <button onClick={Unselect} className="h-6 self-center mr-4">
