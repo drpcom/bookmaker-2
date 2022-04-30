@@ -35,7 +35,7 @@ export const Editor = () => {
     } catch (error) {
       console.log("Unable to update doc.");
     }
-    console.log(text);
+    // console.log(text);
   };
   const UpdateTitle = async (txt) => {
     await setTitle(txt);
